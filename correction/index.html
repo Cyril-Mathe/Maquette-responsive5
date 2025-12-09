@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calendrier – Maquette Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body class="h-screen bg-gray-100 text-gray-900">
+  <div class="min-h-screen flex flex-col md:flex-row bg-slate-50">
+
+    <!-- SIDEBAR GAUCHE -->
+    <aside class="w-full md:w-64 bg-white border-r flex flex-col">
+      <!-- Logo / titre -->
+      <div class="hidden md:flex p-4 border-b  items-center gap-3">
+        <div class="h-8 w-8 rounded bg-black flex items-center justify-center text-white text-sm font-semibold">
+          📅
+        </div>
+        <div> 
+          <p class="text-sm ">Calendrier</p>
+          <p class="text-xs text-gray-500">Organisez vos événements</p>
+        </div>
+      </div>
+
+      <!-- Boutons -->
+      <div class="px-5 pt-4 pb-2 gap-4 grid grid-cols-2 md:grid-cols-1 md:space-y-3  ">
+        <button
+          class=" bg-black text-white rounded-md py-2.5 text-sm font-medium flex items-center justify-center gap-2">
+          <span>+ Nouvel évènement</span>
+        </button>
+        <button
+          class=" border border-gray-300 rounded-md py-2.5 text-sm font-medium flex items-center justify-center gap-2">
+          <span>⤓</span>
+          <span>Exporter</span>
+        </button> 
+      </div>
+
+      <!-- Catégories -->
+      
+      <div class="hidden md:block px-5 mt-4">
+
+        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Catégories</p>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-amber-500"></span> Travail
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-pink-400"></span> Perso
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span> Couple
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span> Maison
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-sky-400"></span> Concert
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-orange-400"></span> Sortie
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-lime-500"></span> Sport
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span> Santé
+          </li>
+        </ul>
+      </div>
+
+      <!-- Raccourcis -->
+      <div class="px-5 mt-6 hidden md:block">
+        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Raccourcis</p>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center justify-between">
+            <span>Mois précédent</span>
+            <button class="h-6 w-6 border border-gray-300 rounded text-xs flex items-center justify-center">-</button>
+          </li>
+          <li class="flex items-center justify-between">
+            <span>Mois suivant</span>
+            <button class="h-6 w-6 border border-gray-300 rounded text-xs flex items-center justify-center">+</button>
+          </li>
+          <li class="flex items-center justify-between">
+            <span>Aujourd’hui</span>
+            <button class="h-6 w-6 border border-gray-300 rounded text-xs flex items-center justify-center">T</button>
+          </li>
+        </ul>
+      </div>
+
+        <!-- Footer -->
+        <div class="mt-auto px-5 py-4 text-xs text-gray-400 border-t hidden md:block">
+          Calendrier v1.0
+        </div>
+      </aside>
+
+    <!-- CONTENU PRINCIPAL -->
+
+    <main class="flex-1 flex flex-col">
+
+      <!-- Barre du haut (mois + flèches) -->
+      <header class="flex items-center justify-between px-8 py-4 border-b bg-white">
+        <div></div> <!-- spacer pour centrer le titre visuellement -->
+
+        <h1 class="text-lg font-semibold">Décembre 2025</h1>
+
+        <div class="flex items-center gap-2">
+          <button
+            class="h-8 w-8 rounded-full flex items-center justify-center border border-gray-300 text-gray-600 text-sm">
+            ‹
+          </button>
+          <button
+            class="h-8 w-8 rounded-full flex-1 items-center justify-center border border-gray-300 text-gray-600 text-sm">
+            ›
+          </button>
+        </div>
+      </header>
+
+      <div class="flex flex-1 flex-col md:flex-row ">
+
+        <!-- Calendrier -->
+        <section class="flex-1 overflow-auto bg-white border-r">
+          <!-- En-têtes jours -->
+          <div class="grid grid-cols-7 border-b text-xs font-medium text-gray-500">
+            <div class="py-2 text-center">LUN</div>
+            <div class="py-2 text-center">MAR</div>
+            <div class="py-2 text-center">MER</div>
+            <div class="py-2 text-center">JEU</div>
+            <div class="py-2 text-center">VEN</div>
+            <div class="py-2 text-center">SAM</div>
+            <div class="py-2 text-center">DIM</div>
+          </div>
+
+          <!-- Grille de jours (simplifiée, statique) -->
+          <div class="grid grid-cols-7 text-sm">
+
+            <!-- Ligne 1 -->
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">1</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">2</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">3</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">4</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">5</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">6</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">7</div>
+
+            <!-- Ligne 2 (8 surligné) -->
+            <div
+              class="border-b border-r h-24 relative bg-sky-50 flex items-start justify-start p-2">
+              <span
+                class="inline-flex items-center justify-center h-6 w-6 rounded-md bg-black text-white text-xs">
+                8
+              </span>
+            </div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">9</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">10</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">11</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">12</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">13</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">14</div>
+
+            <!-- Ligne 3 -->
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">15</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">16</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">17</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">18</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">19</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">20</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">21</div>
+
+            <!-- Ligne 4 -->
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">22</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">23</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">24</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">25</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">26</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">27</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">28</div>
+
+            <!-- Ligne 5 -->
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">29</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">30</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2">31</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">1</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">2</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">3</div>
+            <div class="border-b border-r h-24 flex items-start justify-end p-2 text-gray-300">4</div>
+
+          </div>
+        </section>
+
+        <!-- PANNEAU DROIT (détails du jour) -->
+        <aside class="w-full md:w-80 bg-white flex flex-col">
+          <div class="flex items-center justify-between px-5 py-4 border-b">
+            <h2 class="text-sm font-semibold">Détails du jour</h2>
+            <button class="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+          </div>
+
+          <div class="px-5 py-4 space-y-4 text-sm">
+            <div>
+              <p class="text-xs uppercase text-gray-500 font-semibold mb-1">Date</p>
+              <p>Dimanche 7 Décembre 2025</p>
+            </div>
+
+            <div>
+              <p class="text-xs uppercase text-gray-500 font-semibold mb-1">
+                Événements (1)
+              </p>
+
+              <!-- Carte évènement -->
+              <div class="border rounded-lg p-3 flex flex-col gap-2 shadow-sm">
+                <div class="flex items-center gap-2">
+                  <div class="w-1 h-8 rounded bg-sky-500"></div>
+                  <span class="font-medium">CC</span>
+                </div>
+                <div>
+                  <span
+                    class="inline-flex items-center gap-1 rounded-full bg-amber-100 text-amber-700 text-xs px-2 py-0.5">
+                    <span>💼</span>
+                    <span>Travail</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="mt-2 inline-flex items-center gap-2 bg-black text-white text-sm px-3 py-2 rounded-md">
+              <span>+ Ajouter</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
